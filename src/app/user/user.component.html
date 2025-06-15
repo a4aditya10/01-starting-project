@@ -1,14 +1,11 @@
-<div>
+<app-card>
   <button [class.active]="selected" (click)="onSelectUser()">
     <!-- property binding -->
     <!-- Setting the path here using string concatination -->
-    <img
-      [src]="imagePath"
-      [alt]="user.name"
-    />
+    <img [src]="imagePath" [alt]="user.name" />
 
     <!-- string interpolation  -->
-     <!-- () are used for signals -->
+    <!-- () are used for signals -->
     <span>{{ user.name }}</span>
   </button>
-</div>
+</app-card>
