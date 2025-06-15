@@ -1,10 +1,11 @@
 import { Component, computed, EventEmitter, Input, Output, signal } from '@angular/core';
 import { DUMMY_USERS } from '../dummy-users';
-type User = {
-    id:string,
-    avatar:string,
-    name:string
-};
+import {type User } from './user.model';
+// type User = {
+//     id:string,
+//     avatar:string,
+//     name:string
+// };
 @Component({
   selector: 'app-user',
   standalone: true,
@@ -14,6 +15,7 @@ type User = {
 })
 export class UserComponent {
    @Input({required:true}) user !: User;
+   @Input({required:true}) selected!:boolean;
    @Output() select = new EventEmitter<string>();
    onSelectUser(){
      this.select.emit(this.user.id);
