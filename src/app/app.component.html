@@ -1,5 +1,24 @@
-<header>
-  <img src="assets/angular-logo.png" alt="The Angular logo: The letter 'A'" />
-  <h1>Let's get started!</h1>
-  <p>Time to learn all about Angular!</p>
-</header>
+<app-header />
+<main>
+    <ul id="users">
+    <!-- @for(user of users ; track user.id){ -->
+          <li *ngFor="let user of users">
+            <app-user
+              [user]="user"
+              (select)="onSelectUser($event)"
+            />
+          </li>
+    <!-- } -->
+  </ul>
+
+  <!-- only renders selected user if it is not undefined  -->
+   <!-- use of if and else to render conditional content (only present in Angular >= 17) , use ngfor and ngif  -->
+
+   @if(selectedUser){
+       <app-tasks [userId]="selectedUser.id" [name]="selectedUser!.name " />
+   }@else {
+    <ng-template #fallback>
+        <p id="fallback">Select a user to see their tasks!</p>
+    </ng-template>
+   }
+</main>

@@ -1,0 +1,14 @@
+<div>
+  <button (click)="onSelectUser()">
+    <!-- property binding -->
+    <!-- Setting the path here using string concatination -->
+    <img
+      [src]="imagePath"
+      [alt]="user.name"
+    />
+
+    <!-- string interpolation  -->
+     <!-- () are used for signals -->
+    <span>{{ user.name }}</span>
+  </button>
+</div>
